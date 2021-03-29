@@ -1,0 +1,30 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:./data/students;MODE=PostgreSQL;AUTO_SERVER=TRUE
+    username: sa
+    password: 12345
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        default_schema: 'public'
+        temp:
+          use_jdbc_metadata_defaults: false
+        hbm2ddl:
+          auto: 'update'
+  thymeleaf:
+    encoding: UTF-8
+    prefix: file:lesson7/src/main/resources/templates/
+    cache: false
+  jackson:
+    serialization:
+      indent_output: true
+  web:
+    resources:
+      static-locations: file:src/main/resources/static/
