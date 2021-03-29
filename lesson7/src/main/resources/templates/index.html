@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Студенты</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <h2>Студенты</h2>
+    <h4>Список студентов:</h4>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <td>Id</td>
+            <td>Имя</td>
+            <td>Возраст</td>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="s : ${students}">
+            <td th:text="${s.id}"></td>
+            <td th:text="${s.name}"></td>
+            <td th:text="${s.age}"></td>
+            <td>
+                <a th:href="@{'/edit/' + ${s.id}}">Редактировать</a>
+                <br>
+                <a th:href="@{'/delete/' + ${s.id}}">Удалить</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{'/add'}">Добавить</a>
+</div>
+</body>
+</html>

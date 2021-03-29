@@ -1,2 +1,3 @@
 rootProject.name = 'InterviewLesson'
 
+include 'lesson7'
